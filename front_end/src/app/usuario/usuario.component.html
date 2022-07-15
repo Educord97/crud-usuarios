@@ -1,0 +1,68 @@
+<div class="row mr-3">
+    <div class="col-12">
+        <div class="page-title-box d-flex justify-content-end">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0 bg-white">
+                    <li class="breadcrumb-item"><span class="text-primary">CRUD</span></li>
+                    <li class="breadcrumb-item active">Lista de Usuários</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-2">
+    <div class="card-body">
+        <h2 id="page-heading">
+            <span>Usuários</span>
+            <button class="btn btn-outline-primary float-right" routerLink="/new">
+                <span>
+                    Novo
+                </span>
+            </button>
+        </h2>
+
+        <div class="alert alert-warning" *ngIf="usuarios?.length === 0">
+            <span>Nenhum usuário encontrado</span>
+        </div>
+
+        <div class="table-responsive" *ngIf="usuarios && usuarios.length > 0">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col"><span>ID</span></th>
+                        <th scope="col"><span>Usuário</span></th>
+                        <th scope="col"><span>login</span></th>
+                        <th scope="col"><span>Data de Cadatro</span></th>
+                        <th scope="col"><span>Data de desativação</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let usuario of usuarios">
+                        <td>{{ usuario.idCadUsuario }}</td>
+                        <td>{{ usuario.dcrUsuario }}</td>
+                        <td>{{ usuario.dcrLogin }}</td>
+                        <td>{{ usuario.datCadastro }}</td>
+                        <td>{{ usuario.datDesativacao }}</td>
+                        <td class="text-right">
+                            <div class="btn-group">
+                                <button type="submit" (click)="editUser(usuario.idCadUsuario)"
+                                    class="btn btn-outline-primary btn-sm">
+                                    <span class="material-icons">
+                                        edit
+                                    </span>
+                                </button>
+                                <button type="submit" (click)="delete(usuario)" class="btn btn-outline-danger btn-sm">
+                                    <span class="material-icons">
+                                        delete
+                                    </span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

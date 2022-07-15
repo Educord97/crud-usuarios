@@ -1,0 +1,69 @@
+<div class="row mr-3">
+    <div class="col-12">
+        <div class="page-title-box d-flex justify-content-end">
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0 bg-white">
+                    <li class="breadcrumb-item"><span class="text-primary">CRUD</span></li>
+                    <li class="breadcrumb-item active">Criar ou Editar Usuários</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <form name="editForm" role="form" novalidate (ngSubmit)="submitFormSaveOrUpdate()" [formGroup]="editForm">
+                    <h2>Criar ou editar um Usuário</h2>
+                    <div>
+                        <div class="form-group" [hidden]="!editForm.get(['idCadUsuario'])!.value">
+                            <label for="idCadUsuario">ID</label>
+                            <input type="text" class="form-control" id="idCadUsuario" name="idCadUsuario"
+                                formControlName="idCadUsuario" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label class="form-control-label" for="dcrUsuario">Nome*</label>
+                                <input type="text" class="form-control" max="45" name="dcrUsuario" id="dcrUsuario"
+                                    formControlName="dcrUsuario" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label class="form-control-label" for="dcrLogin">Login*</label>
+                                <input type="text" class="form-control" max="45" name="dcrLogin" id="dcrLogin"
+                                    formControlName="dcrLogin" />
+                            </div>
+                            <div class="form-group col-6">
+                                <label class="form-control-label" for="dcrSenha">Senha*</label>
+                                <input type="text" class="form-control" max="255" name="dcrSenha" id="dcrSenha"
+                                    formControlName="dcrSenha" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label class="form-control-label" for="datCadastro">Data de criação*</label>
+                                <input type="datetime-local" placeholder="YYYY-MM-DD HH:mm" class="form-control"
+                                    name="datCadastro" id="datCadastro" formControlName="datCadastro" />
+                            </div>
+                            <div class="form-group col-6">
+                                <label class="form-control-label" for="datDesativacao">Data de desativação</label>
+                                <input type="datetime-local" placeholder="YYYY-MM-DD HH:mm" class="form-control"
+                                    name="datDesativacao" id="datDesativacao" formControlName="datDesativacao" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" id="cancel" class="btn btn-outline-secondary mr-2" (click)="cancel()">
+                            <span>Cancelar</span>
+                        </button>
+                        <button type="submit" id="save" [disabled]="!editForm.valid" class="btn btn-outline-primary">
+                            <span>Salvar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
